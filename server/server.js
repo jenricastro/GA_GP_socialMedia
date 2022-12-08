@@ -22,15 +22,16 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.json({
-    test: 'connected'
-  })
-});
-
+//Media
 require('./config/mongoose.config');
 require('./controllers/media.controller');
 require('./routes/media.routes')(app);
+
+//User
+require('./controllers/user.controller')
+require('./routes/user.routes');
+require('./routes/user.routes')(app);
+
 //___________________
 //Listener & Port
 //___________________

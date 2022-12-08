@@ -1,26 +1,28 @@
 const User = require ('../models/User')
 const bcrypt = require('bcrypt');
 
-    //We can make use of mongoose virtuals—basically fields we don't want to save in MongoDB—to accomplish this. We will chain calls to get and set to the returned virtual object, allowing us to establish both a getter and a setter for the virtual field.
-
-User.virtual('confirmPassword')
-  .get( () => this._confirmPassword )
-  .set( value => this._confirmPassword = value );
 
 
-  //Note: avoid rewriting the callback function using an arrow function as it will not have the correct scope for this.
-
-    //One common feature of Middleware is the "next" function. Essentially when our Middleware has finished whatever it needs to do, we need to call this to have the next Middleware or next function (in this case normal validations) run.
-
-User.pre('validate', function(next){
-    if (this.password !== this.confirmPassword){
-        this.invalidate('comfirmPassword', 'Password must match confirm password');
-    }
-    next()
-});
-
-
-
+ // Create User
 const addUser = (req, res)=>{
+    //overwrite the user password with the hashed password, then pass that in to our database
+        //----------------------------
+    //Bcrypt in an asynchronous way so we will be using it with Promises. The "10" inside the bcrypt.hash() function refers to the number of salt rounds that Bcrypt will use when generating a salt. For our purposes "10" will be a fine value here.
+    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
+    User.create(req.body, (err, createdUser)=>{
+        console.log(req.body)
+        res.json(createdUser)
+    } )
 
+}
+
+const getUser = (req, res)=>{
+    User.find({}, (err, getUser)=>{
+        res.json(getUser)
+    })
+}
+
+module.exports ={
+    addUser,
+    getUser
 }
