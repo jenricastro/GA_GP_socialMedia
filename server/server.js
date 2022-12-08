@@ -29,7 +29,8 @@ app.get('/' , (req, res) => {
 });
 
 require('./config/mongoose.config');
-
+require('./controllers/media.controller');
+require('./routes/media.routes')(app);
 //___________________
 //Listener & Port
 //___________________

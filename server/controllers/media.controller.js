@@ -14,6 +14,6 @@ const getPost = (req, res) => {
 }
 
 module.exports ={
-    addMedia,
-    getMedia
+    addPost,
+    getPost
 }
