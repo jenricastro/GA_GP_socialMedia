@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require ('cors');
 const app = express ();
 require('dotenv').config()
+const bcrypt = require('bcrypt');
 
 //___________________
 //Middleware
@@ -28,7 +29,8 @@ app.get('/' , (req, res) => {
 });
 
 require('./config/mongoose.config');
-
+require('./controllers/media.controller');
+require('./routes/media.routes')(app);
 //___________________
 //Listener & Port
 //___________________
