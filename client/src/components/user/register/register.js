@@ -27,7 +27,7 @@ const Register = () => {
             axios.post("http://localhost:3000/register", user)
             .then( res => {
                 alert(res.data.message)
-                navigate("/")
+                // navigate("/")
             })
         } else {
             alert("invalid input, please check your Info")
