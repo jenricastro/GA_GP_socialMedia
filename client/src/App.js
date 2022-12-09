@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './components/user/login/login';
 import Register from './components/user/register/register';
-
+import ShowPost from './components/media/ShowPost';
 
 const App = () =>{
 
@@ -21,9 +21,19 @@ const App = () =>{
 
   return(
     <>
+    {/* add frontend (add + edit + show)
+
+
+
+
+
+
+
+
+    //--------------------- */}
     <BrowserRouter>
       <Routes>
-        
+          <Route path='/' element={<ShowPost/>}/>
           <Route path="/login" element={<Login setLoginUser={setLoginUser}/>} />
           <Route path="/register" element ={<Register />}/>
         
