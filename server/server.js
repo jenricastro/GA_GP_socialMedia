@@ -3,15 +3,25 @@
 //___________________
 const express = require('express');
 const cors = require ('cors');
+const session = require('express-session');
 const app = express ();
+
 require('dotenv').config()
-const bcrypt = require('bcrypt');
+
 
 //___________________
 //Middleware
 //___________________
 
 //use public folder for static assets
+app.use(
+    session({
+      secret: process.env.SECRET,
+      resave: false,
+      saveUninitialized: false
+    })
+  )
+  
 app.use(express.static('public'));
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
@@ -29,9 +39,11 @@ require('./routes/media.routes')(app);
 
 //User
 require('./controllers/user.controller')
-require('./routes/user.routes');
 require('./routes/user.routes')(app);
 
+//
+require('./controllers/session.controller');
+require('./routes/session.routes')(app);
 //___________________
 //Listener & Port
 //___________________
