@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 
 const ShowPost = () =>{
@@ -39,8 +39,13 @@ const ShowPost = () =>{
         <>
         <h2>{post.postName}</h2>
             <p>Comment:{post.comment}</p>
-            {/* <p>Comment: {oneProduct.description}</p> */}
             <button onClick={handleDelete}>Delete</button>
+            <Link to={`/edit/${post._id}`}>
+                <button className="btn btn-primary">Edit</button>
+            </Link>
+            <Link to={'/all'}>
+            <button className="btn btn-primary">Home</button>
+            </Link>
         </>
     )
 }

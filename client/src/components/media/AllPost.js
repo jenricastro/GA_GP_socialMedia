@@ -21,10 +21,13 @@ const AllPost = (props) => {
     return(
         <>
             <h1> Display All Post</h1>
+            <Link to={'/'}>Create</Link>
+            <Link to={'/register'}>Register</Link>
             {/* Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity: */}
             {postList.map((post, key)=>{
                 return(
                 <div key= {key}>
+                    
                     <Link to = {`/show/${post._id}`}><h1>{post.postName}</h1></Link>
                         
                         <br/>

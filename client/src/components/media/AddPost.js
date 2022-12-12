@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const AddPost = (props) =>{
-
 
     const {postList, setPostList} = props;  
     const [postName, setPostName] = useState('');
@@ -10,6 +10,7 @@ const AddPost = (props) =>{
     const [comment, setComment] = useState('');
     const [date, setDate] = useState('');
     const [location, setLocation] = useState('');
+    const navigate = useNavigate()
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -29,6 +30,7 @@ const AddPost = (props) =>{
             setComment('');
             setDate('');
             setLocation('')
+            navigate('/all')
         })
         .catch((error)=>{
             console.log(error)
@@ -39,7 +41,7 @@ const AddPost = (props) =>{
     return(
         <div>
             <header>Post List</header>
-
+            <Link to={'/all'}>Home</Link>
             <form onSubmit={handleSubmit}>
                 <div className="form-fields">
                     <label>Post</label>
@@ -103,6 +105,7 @@ const AddPost = (props) =>{
                 <br />
                 {/* Could also be a button element. Try it! */}
                 <input className="submit-input" type="submit" value="Create" />
+                
             </form>
         </div>
     )
