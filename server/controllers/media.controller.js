@@ -13,7 +13,28 @@ const getPost = (req, res) => {
     })
 }
 
+const getById= (req, res)=>{
+    Media.findOne({_id: req.params.id}, (err, postById)=>{
+        res.json(postById)
+    })
+}
+
+const updatePost = (req, res) =>{
+    Media.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedPost)=>{
+        res.json(updatedPost)
+    })
+}
+
+const deletePost = (req, res)=>{
+    Media.findByIdAndDelete({_id: req.params.id}, (err, deletedPost)=>{
+        res.json(deletedPost)
+    })
+}
+
 module.exports ={
     addPost,
-    getPost
+    getPost,
+    getById,
+    updatePost,
+    deletePost
 }

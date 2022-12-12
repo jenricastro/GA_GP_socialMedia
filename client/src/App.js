@@ -1,41 +1,37 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react';
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import Login from './components/user/login/login';
-// import Register from './components/user/register/register';
-// import ShowPost from './components/media/ShowPost';
-import Main from './view/Main';
+import AddPost from '../src/components/media/AddPost';
+import AllPost from "./components/media/AllPost";
+import ShowPost from "./components/media/ShowPost";
+
+
 
 const App = () =>{
-  
-
-//   const [ user, setLoginUser] = useState({})
-// 
-//   useEffect(() => {
-//     setLoginUser(JSON.parse(localStorage.getItem("User")))
-//   }, [])
-
+  const [postList, setPostList] = useState([]);
 
   return(
-
  <>
-
-  {/* {post.map((post)=>{
-  return( */}
     <>
-    
-    <BrowserRouter>
-      <Routes>
-          <Route path = '/' element={<Main/>}></Route>
-          {/* <Route path='/' element={<ShowPost/>}/> */}
-          {/* <Route path="/login" element={<Login setLoginUser={setLoginUser}/>} />
-          <Route path="/register" element ={<Register />}/> */}
-        
-      </Routes>
-    </BrowserRouter>
-    </>
-    
-  {/* })} */}
+      <BrowserRouter>
+      {/* Everything inside of our Router component needs a path */}
+        <Routes>
+
+            <Route path = '/add' element={<AddPost 
+              postList = {postList}
+              setPostList ={setPostList}
+            />}>
+            </Route>
+
+            <Route path = '/all' element={<AllPost 
+              postList = {postList}
+              setPostList ={setPostList}
+            />}>
+            </Route>
+
+            <Route path="/show/:id" element={<ShowPost/>}></Route>
+        </Routes>
+      </BrowserRouter>
+      </>
     </>
  )
 }

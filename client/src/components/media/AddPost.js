@@ -5,7 +5,7 @@ const AddPost = (props) =>{
 
 
     const {postList, setPostList} = props;  
-    const [postName, setPostName] = useState("");
+    const [postName, setPostName] = useState('');
     const [image, setImage] = useState('');
     const [comment, setComment] = useState('');
     const [date, setDate] = useState('');
@@ -24,7 +24,7 @@ const AddPost = (props) =>{
             console.log(response);
             console.log(response.data);
             setPostList([...postList, response.data]);
-            setPostName("");
+            setPostName('');
             setImage('');
             setComment('');
             setDate('');
