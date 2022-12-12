@@ -8,10 +8,6 @@ const mediaSchema = new mongoose.Schema({
         minLength: 3
     },
 
-    image: {
-        type: String
-    },
-
     comment: {
         type: String,
         minLength:[
@@ -25,9 +21,27 @@ const mediaSchema = new mongoose.Schema({
         required: true
     },
 
-    location: {
-        type: String
-    }
+    rating: {
+        type: Number,
+        required: true,
+        minLength: 0,
+        maxLength: 5,
+      },
+
+      lat: {
+        type: Number,
+        required: true,
+      },
+
+      long: {
+        type: Number,
+        required: true,
+      },
+
+      username: {
+        type: String,
+        required: true,
+      },
 
 }, {timestamps: true})
 
