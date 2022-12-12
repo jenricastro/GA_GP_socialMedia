@@ -5,6 +5,7 @@ import AllPost from "./components/media/AllPost";
 import ShowPost from "./components/media/ShowPost";
 import EditPost from "./components/media/EditPost";
 import Register from "./components/user/register/register";
+import Map from "./components/media/Map";
 
 
 
@@ -14,6 +15,7 @@ const App = () =>{
   return(
  <>
     <>
+
       <BrowserRouter>
       {/* Everything inside of our Router component needs a path */}
         <Routes>
@@ -33,6 +35,7 @@ const App = () =>{
             <Route path="/show/:id" element={<ShowPost/>}></Route>
             <Route path="/edit/:id" element={<EditPost/>}></Route>
             <Route path="/register" element={<Register/>}></Route>
+            <Route path="/map" element={<Map/>}></Route>
         </Routes>
       </BrowserRouter>
       </>
