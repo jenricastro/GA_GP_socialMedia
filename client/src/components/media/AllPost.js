@@ -17,30 +17,38 @@ const AllPost = (props) => {
 
     }, [setPostList])
 
-    
-    return(
-        <>
-            <h1> Display All Post</h1>
-            <Link to={'/'}>Create</Link>
-            <Link to={'/register'}>Register</Link>
-            {/* Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity: */}
-            {postList.map((post, key)=>{
-                return(
-                <div key= {key}>
-                    
-                    <Link to = {`/show/${post._id}`}><h1>{post.postName}</h1></Link>
-                        
-                        <br/>
-                        <h3>{post.comment}</h3>
-                        <br/>
-                        <h4>{post.location}</h4>
-                </div>
-             )
-                    
-                
+    return (
+        <div className="container" style={{backgroundColor: "#212529", height: "100vh", minHeight: "100vh"}}>
+            <h1 className="text-bg-dark">Display All Posts</h1>
+            {postList.map((post, key) => {
+                return (
+                    <div key={key} className="container bg-white text-bg-white  border border-secondary rounded border-3 mb-3" >
+                        <div className="row">
+                            <div className="col-md-8">
+                                <div className="post-content">
+                                    <img src={post.image} alt="post-image" className="img-responsive post-image"/>
+                                    <div className="post-container">
+                                        <div className="post-detail">
+                                            <div className="user-info">
+                                                <h6>Name Goes Here</h6>
+                                            </div>
+                                            {/* <div class="line-divider"></div> */}
+                                            <div className="post-text">
+                                                <h3>{post.postName}</h3>
+                                                <p>{post.comment}</p>
+                                                <Link to = {`/show/${post._id}`}>
+                                                    <p>Edit/Delete</p>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
             })}
-        </>
-
+        </div>
     )
 }
 
