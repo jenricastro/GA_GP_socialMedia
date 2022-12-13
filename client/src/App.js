@@ -6,39 +6,28 @@ import ShowPost from "./components/media/ShowPost";
 import EditPost from "./components/media/EditPost";
 import Register from "./components/user/register/register";
 import '../src/App.css'
+import Layout from "./components/layout/Layout";
 
+const App = () => {
+  const [postList, setPostList] = useState([])
 
-const App = () =>{
-  const [postList, setPostList] = useState([]);
-
-  return(
- <div>
-    <>
-      <h1>NAVBAR TEST</h1>
-      <BrowserRouter>
-      {/* Everything inside of our Router component needs a path */}
-        <Routes>
-
-            <Route path = '/' element={<AddPost 
-              postList = {postList}
-              setPostList = {setPostList}
-            />}>
-            </Route>
-
-            <Route path = '/all' element={<AllPost 
-              postList = {postList}
-              setPostList = {setPostList}
-            />}>
-            </Route>
-
-            <Route path="/show/:id" element={<ShowPost/>}></Route>
-            <Route path="/edit/:id" element={<EditPost/>}></Route>
-            <Route path="/register" element={<Register/>}></Route>
-          </Routes>
+  return (
+    <div>
+      <>
+        <BrowserRouter>
+          <Layout>
+            <Routes>
+              <Route path='/' element={<AddPost postList={postList} setPostList={setPostList}/>}></Route>
+              <Route path='/all' element={<AllPost postList={postList} setPostList={setPostList}/>}></Route>
+              <Route path='/show/:id' element={<ShowPost/>}></Route>
+              <Route path='/edit/:id' element={<EditPost/>}></Route>
+              <Route path='/register' element={<Register/>}></Route>
+            </Routes>
+          </Layout>
         </BrowserRouter>
       </>
     </div>
- )
+  )
 }
 
 export default App

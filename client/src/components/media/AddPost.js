@@ -39,7 +39,7 @@ const AddPost = (props) =>{
     }
 
 
-    return(
+    return (
         <div className="container text-bg-dark">
             <h1>Add Post</h1>
             <Link to={'/all'}>Home</Link>
