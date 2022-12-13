@@ -34,6 +34,11 @@ const AllPost = (props) => {
                         <h3>{post.comment}</h3>
                         <br/>
                         <h4>{post.location}</h4>
+                        <br/>
+                        <h3>{post.lat}</h3>
+                        <br/>
+                        <h4>{post.long}</h4>
+                        
                 </div>
              )
                     

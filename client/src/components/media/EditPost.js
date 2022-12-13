@@ -7,10 +7,10 @@ const EditPost = () =>{
     
     const {id} = useParams();
     const [postName, setPostName] = useState('');
-    const [image, setImage] = useState('');
     const [comment, setComment] = useState('');
     const [date, setDate] = useState('');
-    const [location, setLocation] = useState('');
+    const [lat, setLat] = useState('');
+    const [long, setLong] = useState('');
     const navigate = useNavigate()
 
 
@@ -20,8 +20,8 @@ const EditPost = () =>{
             console.log(res);
             console.log(res.data);
             setPostName(res.data.postName);
-            setImage(res.data.image);
-            setLocation(res.data.location)
+            setLat(res.data.lat);
+            setLong(res.data.long)
             setComment(res.data.comment);
             setDate(res.data.date);
         })
@@ -33,10 +33,10 @@ const EditPost = () =>{
         event.preventDefault();
         axios.put(`http://localhost:3000/posts/${id}`, {
             postName,
-            image,
             comment,
             date,
-            location
+            lat,
+            long
         })
         .then((response)=>{
             console.log(response.data);
@@ -67,6 +67,26 @@ const EditPost = () =>{
                         value={comment}
                         name="comment"
                         type="text"
+                    />
+                </div>
+
+                <div className="form-fields">
+                    <label>Latitude</label>
+                    <input
+                        onChange={(event) => setLat(event.target.value)}
+                        value={lat}
+                        name="lat"
+                        type="number"
+                    />
+                </div>
+
+                <div className="form-fields">
+                    <label>Longitude</label>
+                    <input
+                        onChange={(event) => setLong(event.target.value)}
+                        value={long}
+                        name="long"
+                        type="number"
                     />
                 </div>
 

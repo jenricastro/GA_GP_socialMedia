@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.leaflet-container{
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.card {
+  width: 150px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+label {
+  width: max-content;
+  color: red;
+  font-size: 13px;
+  border-bottom: 0.5px solid red;
+  margin: 3px 0;
+}

@@ -21,27 +21,20 @@ const mediaSchema = new mongoose.Schema({
         required: true
     },
 
-    rating: {
-        type: Number,
-        required: true,
-        minLength: 0,
-        maxLength: 5,
-      },
+    lat: {
+      type: Number,
+      required: true,
+    },
 
-      lat: {
-        type: Number,
-        required: true,
-      },
+    long: {
+      type: Number,
+      required: true,
+    },
 
-      long: {
-        type: Number,
-        required: true,
-      },
-
-      username: {
-        type: String,
-        required: true,
-      },
+    username: {
+      type: String,
+      required: true,
+    },
 
 }, {timestamps: true})
 
