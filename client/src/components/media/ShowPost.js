@@ -34,7 +34,7 @@ const ShowPost = () =>{
     }
 
     
-// testsss
+// tests
     return(
         <div className="container mb-3 text-bg-dark">
             <h1>{post.postName}</h1>
