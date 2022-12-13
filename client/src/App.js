@@ -5,14 +5,14 @@ import AllPost from "./components/media/AllPost";
 import ShowPost from "./components/media/ShowPost";
 import EditPost from "./components/media/EditPost";
 import Register from "./components/user/register/register";
-
+import '../src/App.css'
 
 
 const App = () =>{
   const [postList, setPostList] = useState([]);
 
   return(
- <>
+ <div>
     <>
       <BrowserRouter>
       {/* Everything inside of our Router component needs a path */}
@@ -20,23 +20,23 @@ const App = () =>{
 
             <Route path = '/' element={<AddPost 
               postList = {postList}
-              setPostList ={setPostList}
+              setPostList = {setPostList}
             />}>
             </Route>
 
             <Route path = '/all' element={<AllPost 
               postList = {postList}
-              setPostList ={setPostList}
+              setPostList = {setPostList}
             />}>
             </Route>
 
             <Route path="/show/:id" element={<ShowPost/>}></Route>
             <Route path="/edit/:id" element={<EditPost/>}></Route>
             <Route path="/register" element={<Register/>}></Route>
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
       </>
-    </>
+    </div>
  )
 }
 
