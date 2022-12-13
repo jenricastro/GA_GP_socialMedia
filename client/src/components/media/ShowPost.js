@@ -39,9 +39,9 @@ const ShowPost = () =>{
         <div className="container mb-3 text-bg-dark">
             <h1>{post.postName}</h1>
             <p>Comment: {post.comment}</p>
-            <button onClick={handleDelete}>Edit</button>
+            <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
             <Link to = {`/edit/${post._id}`}>
-                <button className="btn btn-primary">Home</button>
+                <button className="btn btn-warning">Edit</button>
             </Link>
         </div>
     )

@@ -37,7 +37,7 @@ const AllPost = (props) => {
                                                 <h3>{post.postName}</h3>
                                                 <p>{post.comment}</p>
                                                 <Link to = {`/show/${post._id}`}>
-                                                    <h7>Edit Post</h7>
+                                                    <p>Edit/Delete</p>
                                                 </Link>
                                             </div>
                                         </div>

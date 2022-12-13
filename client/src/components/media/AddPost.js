@@ -44,26 +44,26 @@ const AddPost = (props) =>{
             <h1>Add Post</h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label for="postName" className="form-label">Post</label>
+                    <label htmlFor="postName" className="form-label">Post</label>
                     <input className="form-control" onChange={(event) => setPostName(event.target.value)} value={postName} id="postName" type="text"/>
                 </div>
                 <div className="mb-3">
-                    <label for="image" className="form-label">Image</label>
+                    <label htmlFor="image" className="form-label">Image</label>
                     <input className="form-control" onChange={(event) => setImage(event.target.value)} value={image} id="image" type="text"/>
                 </div>
                 <div className="mb-3">
-                    <label for="comment" className="form-label">Comment</label>
+                    <label htmlFor="comment" className="form-label">Comment</label>
                     <input className="form-control" onChange={(event) => setComment(event.target.value)} value={comment} id="comment" type="text"/>
                 </div>
                 <div className="mb-3">
-                    <label for="date" className="form-label">Date</label>
+                    <label htmlFor="date" className="form-label">Date</label>
                     <input className="form-control" onChange={(event) => setDate(event.target.value)} value={date} id="date" type="date"/>
                 </div>
                 <div className="mb-3">
-                    <label for="location" className="form-label">Location</label>
+                    <label htmlFor="location" className="form-label">Location</label>
                     <input className="form-control" onChange={(event) => setLocation(event.target.value)} value={location} id="location" type="text"/>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
     )
