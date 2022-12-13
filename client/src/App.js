@@ -14,6 +14,7 @@ const App = () =>{
   return(
  <div>
     <>
+      <h1>NAVBAR TEST</h1>
       <BrowserRouter>
       {/* Everything inside of our Router component needs a path */}
         <Routes>

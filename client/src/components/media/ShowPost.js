@@ -36,17 +36,14 @@ const ShowPost = () =>{
     
 
     return(
-        <>
-        <h2>{post.postName}</h2>
-            <p>Comment:{post.comment}</p>
-            <button onClick={handleDelete}>Delete</button>
-            <Link to={`/edit/${post._id}`}>
-                <button className="btn btn-primary">Edit</button>
+        <div className="container mb-3 text-bg-dark">
+            <h1>{post.postName}</h1>
+            <p>Comment: {post.comment}</p>
+            <button onClick={handleDelete}>Edit</button>
+            <Link to = {`/edit/${post._id}`}>
+                <button className="btn btn-primary">Home</button>
             </Link>
-            <Link to={'/all'}>
-            <button className="btn btn-primary">Home</button>
-            </Link>
-        </>
+        </div>
     )
 }
 

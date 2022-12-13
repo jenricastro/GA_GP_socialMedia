@@ -41,7 +41,7 @@ const AddPost = (props) =>{
 
     return(
         <div className="container text-bg-dark">
-            <header>Post List</header>
+            <h1>Add Post</h1>
             <Link to={'/all'}>Home</Link>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
