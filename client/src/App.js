@@ -7,17 +7,13 @@ import EditPost from "./components/media/EditPost";
 import Register from "./components/user/register/register";
 import '../src/App.css'
 import Layout from "./components/layout/Layout";
-import Map from "./components/media/Map";
 
 const App = () => {
   const [postList, setPostList] = useState([])
 
 
-const App = () =>{
-  const [postList, setPostList] = useState([]);
-
   return(
- <>
+ <div>
     <>
       <BrowserRouter>
       {/* Everything inside of our Router component needs a path */}
