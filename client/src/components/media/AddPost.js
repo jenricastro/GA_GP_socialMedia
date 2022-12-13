@@ -37,7 +37,7 @@ const AddPost = (props) =>{
             console.log(error)
         })
     }
-
+    // hi
 
     return (
         <div className="container text-bg-dark">
