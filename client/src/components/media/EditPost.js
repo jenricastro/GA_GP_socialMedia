@@ -48,46 +48,16 @@ const EditPost = () =>{
     };
 
     return(
-        <>
-        <h1>Edit</h1>
-        <form onSubmit={handleSubmit}>
-        <div className="form-fields">
-                    <label>Post:</label>
-                    <input onChange={(event) => setPostName(event.target.value)}
-                        value={postName}
-                        name="post"
-                        type="text"
-                    />
+        <div className="container text-bg-dark">
+            <h1>Edit Post</h1>
+            <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                    <label htmlFor="post" className="form-label">Post: </label>
+                    <input onChange={(event) => setPostName(event.target.value)} value={postName} type="text" className="form-control" id="post"/>
                 </div>
-
-                <div className="form-fields">
-                    <label>Comment</label>
-                    <input
-                        onChange={(event) => setComment(event.target.value)}
-                        value={comment}
-                        name="comment"
-                        type="text"
-                    />
-                </div>
-
-                <div className="form-fields">
-                    <label>Latitude</label>
-                    <input
-                        onChange={(event) => setLat(event.target.value)}
-                        value={lat}
-                        name="lat"
-                        type="number"
-                    />
-                </div>
-
-                <div className="form-fields">
-                    <label>Longitude</label>
-                    <input
-                        onChange={(event) => setLong(event.target.value)}
-                        value={long}
-                        name="long"
-                        type="number"
-                    />
+                <div className="mb-3">
+                    <label htmlFor="comment" className="form-label">Comment: </label>
+                    <input onChange={(event) => setComment(event.target.value)} value={comment} type="text" className="form-control" id="comment"/>
                 </div>
 
         
@@ -95,7 +65,7 @@ const EditPost = () =>{
           <br/>
                 <input className="submit-input" type="submit" value="Edit" />
             </form>
-        </>
+        </div>
     )
 }
 

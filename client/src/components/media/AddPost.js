@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
+
 const AddPost = (props) =>{
 
     const {postList, setPostList} = props;  
@@ -38,74 +39,31 @@ const AddPost = (props) =>{
     }
 
 
-    return(
-        <div>
-            <header>Post List</header>
-            <Link to={'/all'}>Home</Link>
+    return (
+        <div className="container text-bg-dark">
+            <h1>Add Post</h1>
             <form onSubmit={handleSubmit}>
-                <div className="form-fields">
-                    <label>Post</label>
-                    <input onChange={(event) => setPostName(event.target.value)}
-                        //We set our value to title here mainly to help us clear out the inputs on submission
-                        value={postName}
-                        name="postName"
-                        type="text"
-                    />
+                <div className="mb-3">
+                    <label htmlFor="postName" className="form-label">Post</label>
+                    <input className="form-control" onChange={(event) => setPostName(event.target.value)} value={postName} id="postName" type="text"/>
                 </div>
-
-                <br />
-
-                <div className="form-fields">
-                    <label>Image</label>
-                    <input onChange={(event) => setImage(event.target.value)}
-                        value={image}
-                        name="image"
-                        type="text"
-                    />
+                <div className="mb-3">
+                    <label htmlFor="image" className="form-label">Image</label>
+                    <input className="form-control" onChange={(event) => setImage(event.target.value)} value={image} id="image" type="text"/>
                 </div>
-
-                <br />
-
-                <div className="form-fields">
-                    <label>Comment</label>
-                    <input
-                        onChange={(event) => setComment(event.target.value)}
-                        value={comment}
-                        name="comment"
-                        type="text"
-                    />
+                <div className="mb-3">
+                    <label htmlFor="comment" className="form-label">Comment</label>
+                    <input className="form-control" onChange={(event) => setComment(event.target.value)} value={comment} id="comment" type="text"/>
                 </div>
-
-                <br />
-
-                <div className="form-fields">
-                    <label>Date</label>
-                    <input
-                        onChange={(event) => setDate(event.target.value)}
-                        value={date}
-                        name="date"
-                        type="text"
-                    />
+                <div className="mb-3">
+                    <label htmlFor="date" className="form-label">Date</label>
+                    <input className="form-control" onChange={(event) => setDate(event.target.value)} value={date} id="date" type="date"/>
                 </div>
-
-                <br />
-
-                <div className="form-fields">
-                    <label>Location</label>
-                    <input
-                        onChange={(event) => setLocation(event.target.value)}
-                        value={location}
-                        name="location"
-                        type="text"
-                    />
+                <div className="mb-3">
+                    <label htmlFor="location" className="form-label">Location</label>
+                    <input className="form-control" onChange={(event) => setLocation(event.target.value)} value={location} id="location" type="text"/>
                 </div>
-
-                
-
-                <br />
-                {/* Could also be a button element. Try it! */}
-                <input className="submit-input" type="submit" value="Create" />
-                
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
     )

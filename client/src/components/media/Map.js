@@ -3,28 +3,21 @@ import Map, { NavigationControl, GeolocateControl, Marker, Popup } from 'react-m
 import maplibregl from 'maplibre-gl';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Login from '../user/login/login';
-import Register from '../user/register/register'
 import 'maplibre-gl/dist/maplibre-gl.css';
 import Room from '@mui/icons-material/LocationOn';
 import '/Users/jenri/Documents/dev/projects/social_media/GA_GP_socialMedia/client/src/App.css'
 // import {format} from 'timeago.js'
 
 function App() {
-    const myStorage = window.localStorage;
-    const [currentUsername, setCurrentUsername] = useState(myStorage.getItem("user"));
+    const currentUser = 'usertest'
     const [posts, setPosts] = useState([]);
     const [currentPin, setCurrentPin] = useState(null);
     const [newLocation, setNewLocation] = useState(null);
-    const [title, setTitle] = useState(null);
-    const [desc, setDesc] = useState(null);
-    const [showRegister, setShowRegister] = useState(false);
-    const [showLogin, setShowLogin] = useState(false);
-    // const [viewpoint, setViewpoint] = useState({
-    //     latitude: '',
-    //     longitude: '',
-    //     zoom: 6,
-    // });
+    const [viewpoint, setViewpoint] = useState({
+        latitude: '',
+        longitude: '',
+        zoom: 6,
+    });
 
 
 
@@ -41,34 +34,10 @@ function App() {
         getPosts();
     }, []);
 
-    const handleLogout = () => {
-        setCurrentUsername(null);
-        myStorage.removeItem("user");
-    };
-
-
     const markerClick = (id) => {
         setCurrentPin(id)
+
     }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const newPin = {
-            username: currentUsername,
-            title,
-            desc,
-            lat: newLocation.lat,
-            long: newLocation.long,
-        };
-
-        try {
-            const res = await axios.post("http://localhost:3000/posts", newPin);
-            setPosts([...posts, res.data]);
-            setNewLocation(null);
-        } catch (err) {
-            console.log(err);
-        }
-    };
 
     //This function will pin a new Lat and Long
     const handleAddNewLocation = (e) => {
@@ -97,7 +66,7 @@ function App() {
 
             >
                 <GeolocateControl
-
+                    
                     positionOptions={{ enableHighAccuracy: true }}
                     trackUserLocation={true}
                     onGeolocate={(position) => {
@@ -111,13 +80,13 @@ function App() {
 
                     return (
                         <Marker
-
+                        
                             longitude={p.long}
                             latitude={p.lat}
                         >
                             <Room
                                 style={{
-                                    color: p.username === currentUsername ? "red" : "blue",
+                                    color: p.username === currentUser ? "red" : "blue",
                                     cursor: "pointer"
                                 }}
                                 onClick={() => markerClick(p._id)}
@@ -157,51 +126,10 @@ function App() {
                         closeOnClick={false}
                         onCLose={() => setCurrentPin(null)}
                     >
-                        <div>
-                            <form onSubmit={handleSubmit}>
-                                <label>Title</label>
-                                <input
-                                    placeholder="Enter a title"
-                                    autoFocus
-                                    onChange={(e) => setTitle(e.target.value)}
-                                />
-                                <label>Description</label>
-                                <textarea
-                                    placeholder="Say us something about this place."
-                                    onChange={(e) => setDesc(e.target.value)}
-                                />
-                                <button type="submit" className="submitButton">
-                                    Add Pin
-                                </button>
-                            </form>
-                        </div>
+                        <h1>test</h1>
                     </Popup>
                 )}
-                {currentUsername ? (
-                    <button className="button logout" onClick={handleLogout}>
-                        Log out
-                    </button>
-                ) : (
-                    <div className="buttons">
-                        <button className="button login" onClick={() => setShowLogin(true)}>
-                            Log in
-                        </button>
-                        <button
-                            className="button register"
-                            onClick={() => setShowRegister(true)}
-                        >
-                            Register
-                        </button>
-                    </div>
-                )}
-                {showRegister && <Register setShowRegister={setShowRegister} />}
-                {showLogin && (
-                    <Login
-                        setShowLogin={setShowLogin}
-                        setCurrentUsername={setCurrentUsername}
-                        myStorage={myStorage}
-                    />
-                )}
+
             </Map>
         </div>
     );

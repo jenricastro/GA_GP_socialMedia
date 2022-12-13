@@ -36,19 +36,24 @@ const Register = () => {
     }
 
     return (
-    <div className="background">
-        <div className="register">
-            {console.log("User", user)}
+        <div className="container text-bg-dark mb-3">
             <h1>Register</h1>
-            <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={ handleChange }></input>
-            <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={ handleChange }></input>
-            <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={ handleChange }></input>
-            <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={ handleChange }></input>
-            <div className="button" onClick={register} >Register</div>
-            <div>or</div>
-            <div className="button" onClick={() => navigate("/login")}>Login</div>
+            <form className="row g-3">
+                {console.log("User", user)}
+                <div className="col-md-4">
+                    <label htmlFor="name" className="form-label">Name</label>
+                    <input type="text" className="form-control" value={user.name} placeholder="Your Name" id="name" onChange={handleChange}/>
+                </div>
+                <div className="col-md-4">
+                    <label htmlFor="email" className="form-label">Email</label>
+                    <input type="email" className="form-control" value={user.email} placeholder="Your Email" id="email" onChange={handleChange}/>
+                </div>
+                <div className="col-md-4">
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input type="password" className="form-control" value={user.password} placeholder="Your Password" id="password" onChange={handleChange}/>
+                </div>
+            </form>
         </div>
-    </div>
     )
 }
 
