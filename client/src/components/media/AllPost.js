@@ -18,13 +18,13 @@ const AllPost = (props) => {
     }, [setPostList])
 
     return (
-        <div className="container">
+        <div className="container" style={{backgroundColor: "#212529", height: "100vh", minHeight: "100vh"}}>
             <h1>Display All Posts</h1>
             <Link to={'/'}>Create</Link>
             <Link to={'/register'}>Register</Link>
             {postList.map((post, key) => {
                 return (
-                    <div key={key} className="container text-bg-light border border-5">
+                    <div key={key} className="container text-bg-light border border-5" >
                         <div className="row">
                             <div className="col-md-8">
                                 <div className="post-content">
